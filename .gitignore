@@ -18,3 +18,8 @@ __pycache__
 doc/
 Example_Lidar_Dataset/
 .git
+*.png
+*.gif
+*.bin
+*.mp4
+*.db3
