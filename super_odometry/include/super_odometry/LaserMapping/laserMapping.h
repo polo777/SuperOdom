@@ -67,6 +67,8 @@ namespace super_odometry {
         float init_pitch;
         float init_yaw;
         float read_pose_file;
+
+        float min_range;
     };
 
     class laserMapping : public rclcpp::Node {

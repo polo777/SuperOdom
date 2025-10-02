@@ -1,11 +1,11 @@
 /**:
   ros__parameters:
-    imu_topic: "/imu/data"
-    laser_topic: "/lidar/scan"
+    imu_topic: /livox/imu #"/imu/data"
+    laser_topic: /livox/lidar #"/lidar/scan"
     sensor: "livox"
     use_imu_roll_pitch: false
 
-    world_frame: "map"
+    world_frame: "world"
     world_frame_rot: "map_rot"
     sensor_frame: "sensor"
     sensor_frame_rot: "sensor_rot"
@@ -17,7 +17,7 @@
     # Feature Extraction Params
     feature_extraction_node:
         scan_line: 4 
-        min_range: 0.2    #<!-- remove too closed points -->
+        min_range: 0.15    #<!-- remove too closed points -->
         filter_point_size: 3
 
     # Laser Mapping Params
@@ -26,6 +26,7 @@
         mapping_plane_resolution: 0.1
         max_iterations: 5
         max_surface_features: 4000
+        min_range: 0.10
 
         # For localization mode
         localization_mode: false

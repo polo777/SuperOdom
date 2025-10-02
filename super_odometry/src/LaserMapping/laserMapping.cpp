@@ -119,6 +119,8 @@ namespace super_odometry {
         slam.init_pitch=config_.init_pitch;
         slam.init_yaw=config_.init_yaw;
 
+        // slam.min_range=config_.min_range; //MB
+
         prediction_source = PredictionSource::IMU_ORIENTATION;
         timeLatestImuOdometry = rclcpp::Time(0,0,RCL_ROS_TIME);
 
@@ -201,6 +203,8 @@ namespace super_odometry {
         this->declare_parameter("laser_mapping_node.init_yaw", 0.0);
         this->declare_parameter("map_dir", "pointcloud_local.pcd");
 
+        this->declare_parameter("laser_mapping_node.min_range", 0.1); //MB
+
 
         // Get parameters
         config_.lineRes = this->get_parameter("laser_mapping_node.mapping_line_resolution").as_double();
@@ -219,6 +223,8 @@ namespace super_odometry {
         config_.localization_mode = this->get_parameter("laser_mapping_node.localization_mode").as_bool();
         config_.read_pose_file = this->get_parameter("laser_mapping_node.read_pose_file").as_bool();
         config_.use_imu_roll_pitch = USE_IMU_ROLL_PITCH;
+
+        config_.min_range= this->get_parameter("laser_mapping_node.min_range").as_double(); //MB
 
         if(config_.read_pose_file)
         {   
@@ -478,9 +484,21 @@ return PredictionSource::CONSTANT_VELOCITY;
         sensor_msgs::msg::PointCloud2 laserCloudFullRes3;
         pcl::toROSMsg(*laserCloudFullRes, laserCloudFullRes3);
         pcl::fromROSMsg(laserCloudFullRes3, laserCloudFullResCvt);
+
+        // Get current position (MB)
+        double current_tx = t_w_curr.x();
+        double current_ty = t_w_curr.y();
+        double current_tz = t_w_curr.z();
+
         for (int i = 0; i < laserCloudFullResNum; i++) {
           PointType const *const &pi = &laserCloudFullResCvt.points[i];
-          if (pi->x* pi->x+ pi->y * pi->y + pi->z* pi->z > 0.01)
+
+          //Calculate position relative to the current robot center (MB)
+          double rx = pi->x - current_tx;
+          double ry = pi->y - current_ty;
+          double rz = pi->z - current_tz;
+
+          if (rx * rx + ry * ry + rz * rz > config_.min_range)    //MB changed from caparing against pi->x,y,z
           {
              laserCloudFullResClean.push_back(*pi);
           }

@@ -1,12 +1,7 @@
 # Author: TaeYoung Kim
 # email: tyoung96@yonsei.ac.kr
 
-FROM arm64v8/ros:humble-ros-base
-
-# Install ros-humble-desktop-full to match original intent
-RUN apt-get update && apt-get install -y \
-    ros-humble-desktop-full \
- && apt-get clean
+FROM osrf/ros:humble-desktop-full
 
 ENV NVIDIA_VISIBLE_DEVICES \
     ${NVIDIA_VISIBLE_DEVICES:-all}

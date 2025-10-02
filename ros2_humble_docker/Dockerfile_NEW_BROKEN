@@ -1,0 +1,141 @@
+# Author: TaeYoung Kim
+# email: tyoung96@yonsei.ac.kr
+
+FROM arm64v8/ros:humble-ros-base
+
+# Install ros-humble-desktop-full to match original intent
+RUN apt-get update && apt-get install -y \
+    ros-humble-desktop-full \
+ && apt-get clean
+
+# Install Python 3.8 and set as default
+RUN apt-get update && apt-get install -y \
+    python3.8 \
+    python3.8-dev \
+    python3.8-distutils \
+ && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.8 1 \
+ && apt-get clean
+
+ENV NVIDIA_VISIBLE_DEVICES \
+    ${NVIDIA_VISIBLE_DEVICES:-all}
+ENV NVIDIA_DRIVER_CAPABILITIES \
+    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install essential libraries and ROS dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    cppcheck \
+    gdb \
+    git \
+    sudo \
+    vim \
+    wget \
+    tmux \
+    curl \
+    less \
+    htop \
+    libsm6 libxext6 libgl1-mesa-glx libxrender-dev \
+    tzdata \
+    libatlas-base-dev \
+    libeigen3-dev \
+    libpcl-dev \
+    libgoogle-glog-dev \
+    libsuitesparse-dev \
+    libglew-dev \
+    python3-tk \
+    python3-rosdep \
+    python3-rosinstall \
+    python3-rosinstall-generator \
+    python3-wstool \
+    ros-humble-tf2 \
+    ros-humble-cv-bridge \
+    ros-humble-pcl-conversions \
+    ros-humble-xacro \
+    ros-humble-robot-state-publisher \
+    ros-humble-rviz2 \
+    ros-humble-image-transport \
+    ros-humble-image-transport-plugins \
+    ros-humble-pcl-ros \
+    libceres-dev \
+    ros-humble-grid-map-msgs \
+    ros-humble-grid-map \
+    libopenblas-base libopenblas-dev \
+    libopenmpi-dev \
+    libomp-dev \
+    liblapack-dev \
+ && ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime \
+ && dpkg-reconfigure --frontend noninteractive tzdata \
+ && apt-get clean
+
+# Initialize rosdep
+# RUN rosdep init  # Uncomment if not already initialized on host
+RUN rosdep update
+
+# Python dependencies
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install --no-cache-dir \
+    numpy==1.24.3 \
+    scipy \
+    matplotlib==3.7.1 \
+    ipython \
+    opencv-python \
+    pandas \
+    visdom \
+    scikit-image \
+    scikit-learn \
+    numba \
+    Pillow \
+    pyyaml \
+    pycryptodome \
+    bagpy \
+    Cython\<3 \
+    catkin_tools \
+    gym \
+    rerun-sdk \
+    packaging
+
+# Install Jetson-Optimized PyTorch (CUDA 11.4 for JetPack 5.1)
+RUN wget https://developer.download.nvidia.cn/compute/redist/jp/v512/pytorch/torch-2.1.0a0+41361538.nv23.06-cp38-cp38-linux_aarch64.whl -O torch-2.1.0-cp38-cp38-linux_aarch64.whl
+RUN python3 -m pip install --no-cache-dir \
+    torch-2.1.0-cp38-cp38-linux_aarch64.whl \
+    torchvision \
+    torchaudio \
+    --index-url https://download.pytorch.org/whl/cu114
+RUN rm torch-2.1.0-cp38-cp38-linux_aarch64.whl
+
+# Install Livox SDK
+WORKDIR /root/
+RUN git clone https://github.com/Livox-SDK/Livox-SDK2.git
+WORKDIR /root/Livox-SDK2
+RUN mkdir build
+WORKDIR /root/Livox-SDK2/build
+RUN cmake .. && make -j2 && make install
+
+# Install Sophus
+WORKDIR /root/
+RUN git clone https://github.com/strasdat/Sophus.git \
+    && cd Sophus && git checkout 97e7161 \
+    && mkdir build && cd build && cmake .. -DBUILD_TESTS=OFF \
+    && make -j2 && make install
+
+# Install GTSAM
+WORKDIR /root/
+RUN git clone https://github.com/borglab/gtsam.git \
+    && cd gtsam && git checkout 4abef92 \
+    && mkdir build && cd build \
+    && cmake -DGTSAM_USE_SYSTEM_EIGEN=ON -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF .. \
+    && make -j2 && make install
+
+# Source ROS environment
+RUN /bin/bash -c '. /opt/ros/humble/setup.bash;'
+
+WORKDIR /root/ros2_ws
+
+# Load ROS environment at each run
+COPY ./ros_entrypoint.sh /
+RUN chmod 755 /ros_entrypoint.sh
+ENTRYPOINT ["/ros_entrypoint.sh"]
+
+CMD ["bash"]

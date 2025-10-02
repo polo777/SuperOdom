@@ -19,11 +19,11 @@ fi
 # Assign the arguments to variables for clarity
 CONTAINER_NAME="$1"
 IMAGE_NAME="$2"
-PROJECT_DIR="/path/to/your/superodom"
-DATASET_DIR="/path/to/your/dataset"
+PROJECT_DIR="/home/unitree/ros2_ws/src"
+DATASET_DIR="/home/unitree/ros2_ws/src/SuperOdom/Example_Lidar_Dataset/cic_building_indoor_without_camera.db3"
 
 # Launch the nvidia-docker container with the provided image name and tag
-docker run --privileged -it \
+docker run --runtime=nvidia --privileged -it \
             --gpus all \
            -e NVIDIA_DRIVER_CAPABILITIES=all \
            -e NVIDIA_VISIBLE_DEVICES=all \

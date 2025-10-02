@@ -2,10 +2,12 @@ import os
 
 from ament_index_python import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 import launch_ros
+
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def get_share_file(package_name, file_name):
     return os.path.join(get_package_share_directory(package_name), file_name)
@@ -90,6 +92,12 @@ def generate_launch_description():
         }],
     )
 
+    livox_MID360_driver_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory('livox_ros_driver2'),
+            'launch_ROS2/'), 'msg_MID360_launch.py'])
+    )
+
     
     return LaunchDescription([
         launch_ros.actions.SetParameter(name='use_sim_time', value='false'),
@@ -103,4 +111,5 @@ def generate_launch_description():
         feature_extraction_node,
         laser_mapping_node,
         imu_preintegration_node,
+        livox_MID360_driver_cmd,
     ])
