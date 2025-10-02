@@ -1,0 +1,303 @@
+[33meace839[m[33m ([m[1;36mHEAD -> [m[1;32mros2[m[33m)[m Edit to .gitignore file
+ .gitignore | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m24bd53f[m Edit to .gitignore file
+ .gitignore | 1 [32m+[m
+ 1 file changed, 1 insertion(+)
+[33m5013a04[m Edit to .gitignore file
+ Example_Lidar_Dataset/COLCON_IGNORE                          |   0
+ Example_Lidar_Dataset/cic_building_indoor_without_camera.db3 | Bin [31m1269338112[m -> [32m0[m bytes
+ Example_Lidar_Dataset/cic_indoor_map.pcd                     | Bin [31m4982680[m -> [32m0[m bytes
+ Example_Lidar_Dataset/frames_2025-09-29_22.33.31.gv          |   1 [31m-[m
+ Example_Lidar_Dataset/frames_2025-09-29_22.33.31.pdf         | Bin [31m5940[m -> [32m0[m bytes
+ Example_Lidar_Dataset/frames_2025-09-29_22.35.23.gv          |   1 [31m-[m
+ Example_Lidar_Dataset/frames_2025-09-29_22.35.23.pdf         | Bin [31m5940[m -> [32m0[m bytes
+ Example_Lidar_Dataset/frames_2025-09-29_22.36.08.gv          |   1 [31m-[m
+ Example_Lidar_Dataset/frames_2025-09-29_22.36.08.pdf         | Bin [31m5940[m -> [32m0[m bytes
+ 9 files changed, 3 deletions(-)
+[33m42e4c48[m Edit to .gitignore file
+ .gitignore | 2 [32m++[m
+ 1 file changed, 2 insertions(+)
+[33ma377a0b[m Add custom changes to SuperOdom for ros2_ws
+ Example_Lidar_Dataset/COLCON_IGNORE                              |   0
+ Example_Lidar_Dataset/cic_building_indoor_without_camera.db3     | Bin [31m0[m -> [32m1269338112[m bytes
+ Example_Lidar_Dataset/cic_indoor_map.pcd                         | Bin [31m0[m -> [32m4982680[m bytes
+ Example_Lidar_Dataset/frames_2025-09-29_22.33.31.gv              |   1 [32m+[m
+ Example_Lidar_Dataset/frames_2025-09-29_22.33.31.pdf             | Bin [31m0[m -> [32m5940[m bytes
+ Example_Lidar_Dataset/frames_2025-09-29_22.35.23.gv              |   1 [32m+[m
+ Example_Lidar_Dataset/frames_2025-09-29_22.35.23.pdf             | Bin [31m0[m -> [32m5940[m bytes
+ Example_Lidar_Dataset/frames_2025-09-29_22.36.08.gv              |   1 [32m+[m
+ Example_Lidar_Dataset/frames_2025-09-29_22.36.08.pdf             | Bin [31m0[m -> [32m5940[m bytes
+ ros2_humble_docker/Dockerfile                                    |   7 [32m+[m[31m-[m
+ ros2_humble_docker/Dockerfile_NEW_BROKEN                         | 141 [32m++++++++++++++++++++++++++++[m
+ ros2_humble_docker/Dockerfile_Origional                          | 126 [32m+++++++++++++++++++++++++[m
+ ros2_humble_docker/container_run.sh                              |   6 [32m+[m[31m-[m
+ super_odometry/config/livox_mid360.yaml                          |   9 [32m+[m[31m-[m
+ .../include/super_odometry/LaserMapping/laserMapping.h           |   2 [32m+[m
+ super_odometry/launch/livox_mid360.launch.py                     |  11 [32m++[m[31m-[m
+ super_odometry/ros2.rviz                                         |  30 [32m+++[m[31m---[m
+ super_odometry/src/LaserMapping/laserMapping.cpp                 |  20 [32m+++[m[31m-[m
+ 18 files changed, 331 insertions(+), 24 deletions(-)
+[33m4a5ae2d[m[33m ([m[1;31morigin/ros2[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update readme.md
+ readme.md | 12 [32m++++++[m[31m------[m
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+[33maf8c31c[m Update readme.md
+ readme.md | 2 [32m++[m
+ 1 file changed, 2 insertions(+)
+[33m3e8850d[m Update readme.md with menu
+ readme.md | 27 [32m+++++++++++++++++++++++++++[m
+ 1 file changed, 27 insertions(+)
+[33mea77682[m Merge pull request #18 from Yu45-star/readme
+[33mc6142a5[m Update readme.md
+ readme.md | 11 [32m+++++++++[m[31m--[m
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+[33m7d97fa1[m Modify readme
+ readme.md | 4 [32m++[m[31m--[m
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+[33m223ceb9[m Merge pull request #14 from ShaoshuSu/feature/odom-velocity
+[33m9f17ea4[m Add velocity calculation based on /laser_odometry
+ super_odometry/src/LaserMapping/laserMapping.cpp | 35 [32m++++++++++++++++++++++++++++++++[m[31m---[m
+ 1 file changed, 32 insertions(+), 3 deletions(-)
+[33m95a1c85[m add estimate lidar uncertainty
+ super_odometry/include/super_odometry/LidarProcess/LidarSlam.h |  19 [32m++[m[31m-[m
+ super_odometry/ros2.rviz                                       | 193 [32m++++++++++++++++++++++++++++[m[31m--[m
+ super_odometry/src/LidarProcess/LidarSlam.cpp                  | 138 [32m+++++++++++++++++[m[31m----[m
+ 3 files changed, 311 insertions(+), 39 deletions(-)
+[33m8c9e314[m Update readme.md
+ readme.md | 5 [32m+[m[31m----[m
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+[33meebe443[m add pic
+ doc/degradtion.png | Bin [31m0[m -> [32m1877471[m bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+[33m463c836[m[33m ([m[1;33mtag: v1.0[m[33m)[m Update readme.md
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m1c2681b[m Merge pull request #12 from adrienzhh/ros2
+[33m60582a6[m update readme
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m730bbb0[m update readme
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m9bdaf6f[m add rerun visualization support
+ .gitignore                             |   8 [32m+[m[31m-[m
+ readme.md                              |  23 [32m++[m[31m-[m
+ ros2_humble_docker/Dockerfile          |   1 [32m+[m
+ script/visualizers/base.py             | 411 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ script/visualizers/rerun_vis.py        | 122 [32m++++++++++++++++[m
+ script/visualizers/rerun_visualizer.py | 316 [32m+++++++++++++++++++++++++++++++++++++++++[m
+ script/visualizers/utils.py            |  89 [32m++++++++++++[m
+ 7 files changed, 966 insertions(+), 4 deletions(-)
+[33mfea804d[m Merge pull request #11 from adrienzhh/ros2
+[33m67b3e34[m change QoS policy from RELIABLE to BEST_EFFORT
+ .../include/super_odometry/FeatureExtraction/featureExtraction.h |  2 [31m--[m
+ super_odometry/src/FeatureExtraction/featureExtraction.cpp       | 41 [32m+++++++[m[31m----------------------[m
+ super_odometry/src/ImuPreintegration/imuPreintegration.cpp       |  7 [32m+++[m[31m--[m
+ 3 files changed, 15 insertions(+), 35 deletions(-)
+[33me878a25[m Merge pull request #10 from adrienzhh/ros2
+[33m6750c21[m update readme
+ readme.md | 4 [32m++[m[31m--[m
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+[33me9c3b94[m update readme
+ readme.md | 16 [32m++++++++[m[31m--------[m
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+[33m8bb45cf[m update readme
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m50c5ae0[m update readme
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33mb97db11[m update readme
+ readme.md | 11 [32m++++++++[m[31m---[m
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+[33m5d5695e[m update readme
+ readme.md | 2 [32m++[m
+ 1 file changed, 2 insertions(+)
+[33ma64f92a[m update readme
+ readme.md | 7 [32m++++[m[31m---[m
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+[33m635d7b9[m update readme
+ readme.md | 20 [32m++++++++++++++[m[31m------[m
+ 1 file changed, 14 insertions(+), 6 deletions(-)
+[33m8e88684[m updarte readme
+ readme.md | 26 [32m+++++++++++++++++++++++++[m[31m-[m
+ 1 file changed, 25 insertions(+), 1 deletion(-)
+[33mbbabf5d[m Merge branch 'ros2' of https://github.com/adrienzhh/SuperOdom into ros2
+[33mc8d8fe4[m update readme
+ readme.md | 36 [32m++++++++++++++++++++++[m[31m--------------[m
+ 1 file changed, 22 insertions(+), 14 deletions(-)
+[33mbf77898[m Merge pull request #9 from adrienzhh/ros2
+[33m0c4dae5[m Update readme.md
+ readme.md | 4 [32m+++[m[31m-[m
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+[33mf4940a5[m Merge pull request #8 from adrienzhh/ros2
+[33m188f9e0[m update yaml
+ super_odometry/config/livox_mid360.yaml | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m7f365b0[m fix localization mode && update readme
+ readme.md                                        |  1 [32m+[m
+ super_odometry/config/livox_mid360.yaml          |  3 [32m++[m[31m-[m
+ super_odometry/config/os1_128.yaml               |  3 [32m++[m[31m-[m
+ super_odometry/config/vlp_16.yaml                |  3 [32m++[m[31m-[m
+ super_odometry/ros2.rviz                         | 32 [32m++++++++++++++++++[m[31m--------------[m
+ super_odometry/src/LaserMapping/laserMapping.cpp |  5 [32m+++[m[31m--[m
+ 6 files changed, 28 insertions(+), 19 deletions(-)
+[33mab798ac[m Merge pull request #7 from adrienzhh/ros2
+[33m965a656[m update readme
+ readme.md                          | 9 [32m++++[m[31m-----[m
+ super_odometry/config/os1_128.yaml | 4 [32m++[m[31m--[m
+ 2 files changed, 6 insertions(+), 7 deletions(-)
+[33mb06e923[m update readme
+ readme.md | 4 [32m++[m[31m--[m
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+[33m8d9db54[m Merge pull request #6 from adrienzhh/ros2
+[33m15f0d5a[m update benchmark script
+ script/benchmark_livox.yaml    | 2 [32m+[m[31m-[m
+ script/benchmark_ouster.yaml   | 8 [32m++++[m[31m----[m
+ script/benchmark_velodyne.yaml | 6 [32m+++[m[31m---[m
+ 3 files changed, 8 insertions(+), 8 deletions(-)
+[33m10a034e[m update readme
+ readme.md | 4 [32m++[m[31m--[m
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+[33m6ea87d4[m update readme and dockerfile
+ readme.md                     | 10 [32m+++++[m[31m-----[m
+ ros2_humble_docker/Dockerfile |  1 [31m-[m
+ script/benchmark_livox.yaml   |  8 [32m++++[m[31m----[m
+ 3 files changed, 9 insertions(+), 10 deletions(-)
+[33me528989[m Merge pull request #3 from adrienzhh/ros2
+[33m7e758d6[m update readme
+ readme.md | 7 [32m++++++[m[31m-[m
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+[33m998d7a2[m update readme
+ readme.md | 4 [32m++[m[31m--[m
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+[33m6e9d9af[m Merge pull request #2 from adrienzhh/ros2
+[33m9bdc9bf[m update readme
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m29bba61[m update readme
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m8c9c7a9[m update readme
+ readme.md | 7 [32m+++++[m[31m--[m
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+[33ma156ca1[m update readme
+ readme.md | 13 [32m++++++++++++[m[31m-[m
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+[33m8cad36b[m update tmux yaml
+ script/benchmark_livox.yaml    |  2 [32m+[m[31m-[m
+ script/benchmark_ouster.yaml   |  2 [32m+[m[31m-[m
+ script/benchmark_velodyne.yaml |  2 [32m+[m[31m-[m
+ script/run.yaml                | 15 [32m++++[m[31m-----------[m
+ 4 files changed, 7 insertions(+), 14 deletions(-)
+[33mffed21e[m update container_run.sh
+ readme.md                           | 1 [31m-[m
+ ros2_humble_docker/container_run.sh | 4 [32m++[m[31m--[m
+ 2 files changed, 2 insertions(+), 3 deletions(-)
+[33m3d26543[m update readme
+ readme.md                                    | 8 [32m++++++++[m
+ super_odometry/launch/livox_mid360.launch.py | 2 [32m+[m[31m-[m
+ super_odometry/launch/os1_128.launch.py      | 2 [32m+[m[31m-[m
+ super_odometry/launch/vlp_16.launch.py       | 2 [32m+[m[31m-[m
+ super_odometry/readme.md                     | 2 [32m+[m[31m-[m
+ 5 files changed, 12 insertions(+), 4 deletions(-)
+[33m433def2[m Update readme.md
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m65180de[m Update readme.md
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33mb74104f[m Update readme.md
+ readme.md | 5 [32m+++[m[31m--[m
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+[33mea5fbdc[m Update readme.md
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33me7f0a6a[m Update readme.md
+ readme.md | 2 [32m+[m[31m-[m
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[33m1f9097a[m Update readme.md
+ readme.md | 5 [32m++[m[31m---[m
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+[33mde507a1[m first release
+ doc/{uncertainty_estimation.mp4 => uncertainty.gif} | Bin [31m17223566[m -> [32m28402548[m bytes
+ readme.md                                           |  40 [32m++++++++++++++++++++++[m[31m------------------[m
+ 2 files changed, 22 insertions(+), 18 deletions(-)
+[33m69626f2[m first release
+ .gitignore                                                       |   11 [32m+[m
+ doc/superloc.png                                                 |  Bin [31m0[m -> [32m1023657[m bytes
+ doc/superodom.png                                                |  Bin [31m0[m -> [32m847216[m bytes
+ doc/tested_platform.png                                          |  Bin [31m0[m -> [32m4304437[m bytes
+ doc/uncertainty_estimation.mp4                                   |  Bin [31m0[m -> [32m17223566[m bytes
+ readme.md                                                        |  208 [32m++++++[m
+ ros2_humble_docker/Dockerfile                                    |  126 [32m++++[m
+ ros2_humble_docker/container_run.sh                              |   39 [32m+[m
+ ros2_humble_docker/ros_entrypoint.sh                             |   12 [32m+[m
+ script/benchmark_livox.yaml                                      |   80 [32m++[m
+ script/benchmark_ouster.yaml                                     |   91 [32m+++[m
+ script/benchmark_velodyne.yaml                                   |   82 [32m+++[m
+ script/run.yaml                                                  |   46 [32m++[m
+ script/save_benchmark_result.py                                  |  304 [32m++++++++[m
+ script/save_imu_vs_icp.py                                        |  210 [32m++++++[m
+ script/save_superodom_stats.py                                   |  202 [32m+++++[m
+ script/save_superodom_stats_matplotlib.py                        |  294 [32m++++++++[m
+ super_odometry/.gitignore                                        |    2 [32m+[m
+ super_odometry/CMakeLists.txt                                    |  184 [32m+++++[m
+ super_odometry/cmake/FindEigen.cmake                             |  172 [32m+++++[m
+ super_odometry/cmake/FindGflags.cmake                            |  591 [32m+++++++++++++++[m
+ super_odometry/cmake/FindGlog.cmake                              |  346 [32m+++++++++[m
+ super_odometry/config/livox/livox_mid360_calibration.yaml        |   25 [32m+[m
+ super_odometry/config/livox_mid360.yaml                          |   47 [32m++[m
+ super_odometry/config/os1_128.yaml                               |   48 [32m++[m
+ super_odometry/config/ouster/os1_128_calibration.yaml            |   32 [32m+[m
+ super_odometry/config/velodyne/vlp_16_calibration.yaml           |   30 [32m+[m
+ super_odometry/config/vlp_16.yaml                                |   48 [32m++[m
+ .../include/super_odometry/FeatureExtraction/featureExtraction.h |  218 [32m++++++[m
+ .../include/super_odometry/ImuPreintegration/imuPreintegration.h |  214 [32m++++++[m
+ .../include/super_odometry/LaserMapping/laserMapping.h           |  313 [32m++++++++[m
+ super_odometry/include/super_odometry/LidarProcess/LidarSlam.h   |  412 [32m+++++++++++[m
+ super_odometry/include/super_odometry/LidarProcess/LocalMap.h    |  766 [32m+++++++++++++++++++[m
+ .../super_odometry/LidarProcess/factor/SE3AbsolutatePoseFactor.h |   34 [32m+[m
+ .../super_odometry/LidarProcess/factor/lidarOptimization.h       |   54 [32m++[m
+ .../LidarProcess/factor/pose_local_parameterization.h            |   25 [32m+[m
+ super_odometry/include/super_odometry/LocalMap.h                 |  736 [32m+++++++++++++++++++[m
+ super_odometry/include/super_odometry/config/parameter.h         |  128 [32m++++[m
+ super_odometry/include/super_odometry/container/MapRingBuffer.h  |  134 [32m++++[m
+ super_odometry/include/super_odometry/flann/nanoflann.h          | 1031 [32m++++++++++++++++++++++++++[m
+ super_odometry/include/super_odometry/flann/octree.h             | 1058 [32m+++++++++++++++++++++++++++[m
+ super_odometry/include/super_odometry/sensor_data/imu/imu_data.h |  206 [32m++++++[m
+ .../include/super_odometry/sensor_data/pointcloud/LidarPoint.h   |   78 [32m++[m
+ .../include/super_odometry/sensor_data/pointcloud/point_os.h     |   83 [32m+++[m
+ super_odometry/include/super_odometry/tic_toc.h                  |   32 [32m+[m
+ super_odometry/include/super_odometry/utils/EigenTypes.h         |  572 [32m+++++++++++++++[m
+ super_odometry/include/super_odometry/utils/Twist.h              |  246 [32m+++++++[m
+ super_odometry/include/super_odometry/utils/sophus_utils.hpp     |  193 [32m+++++[m
+ super_odometry/include/super_odometry/utils/superodom_utils.h    |  171 [32m+++++[m
+ super_odometry/include/super_odometry/utils/utility.h            |  138 [32m++++[m
+ super_odometry/include/utility.h                                 |  496 [32m+++++++++++++[m
+ super_odometry/launch/livox_mid360.launch.py                     |  106 [32m+++[m
+ super_odometry/launch/os1_128.launch.py                          |  106 [32m+++[m
+ super_odometry/launch/vlp_16.launch.py                           |  106 [32m+++[m
+ super_odometry/package.xml                                       |   40 [32m+[m
+ super_odometry/readme.md                                         |   32 [32m+[m
+ super_odometry/ros2.rviz                                         |  343 [32m+++++++++[m
+ super_odometry/src/FeatureExtraction/featureExtraction.cpp       |  865 [32m++++++++++++++++++++++[m
+ super_odometry/src/ImuPreintegration/imuPreintegration.cpp       |  767 [32m+++++++++++++++++++[m
+ super_odometry/src/LaserMapping/LocalMap.cpp                     |    5 [32m+[m
+ super_odometry/src/LaserMapping/laserMapping.cpp                 |  768 [32m+++++++++++++++++++[m
+ super_odometry/src/LaserMapping/lidarOptimization.cpp            |  162 [32m++++[m
+ super_odometry/src/LidarProcess/LidarSlam.cpp                    |  924 [32m+++++++++++++++++++++++[m
+ super_odometry/src/LidarProcess/SE3AbsolutatePoseFactor.cpp      |   51 [32m++[m
+ super_odometry/src/LidarProcess/pose_local_parameterization.cpp  |   31 [32m+[m
+ super_odometry/src/featureExtraction_node.cpp                    |   28 [32m+[m
+ super_odometry/src/imuPreintegration_node.cpp                    |   27 [32m+[m
+ super_odometry/src/laserMapping_node.cpp                         |   26 [32m+[m
+ super_odometry/src/parameter/parameter.cpp                       |  341 [32m+++++++++[m
+ super_odometry/src/utils/superodom_utils.cpp                     |  213 [32m++++++[m
+ super_odometry/start_pose.txt                                    |    2 [32m+[m
+ super_odometry_msgs/CMakeLists.txt                               |   56 [32m++[m
+ super_odometry_msgs/msg/IterationStats.msg                       |    6 [32m+[m
+ super_odometry_msgs/msg/LaserFeature.msg                         |   31 [32m+[m
+ super_odometry_msgs/msg/OptimizationStats.msg                    |   28 [32m+[m
+ super_odometry_msgs/package.xml                                  |   30 [32m+[m
+ 76 files changed, 15662 insertions(+)
