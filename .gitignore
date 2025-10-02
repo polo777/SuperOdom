@@ -15,6 +15,6 @@ __pycache__
 *.pyw
 *.pyz
 *.pywz
-doc
+doc/
 Example_Lidar_Dataset/
 .git
