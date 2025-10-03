@@ -498,7 +498,7 @@ return PredictionSource::CONSTANT_VELOCITY;
           double ry = pi->y - current_ty;
           double rz = pi->z - current_tz;
 
-          if (rx * rx + ry * ry + rz * rz > config_.min_range)    //MB changed from caparing against pi->x,y,z
+          if ((rx * rx + ry * ry + rz * rz > config_.min_range) && (pi->x * pi->x + pi->y * pi->y + pi->z * pi->z > 0.01))    //MB added rxyz check
           {
              laserCloudFullResClean.push_back(*pi);
           }
