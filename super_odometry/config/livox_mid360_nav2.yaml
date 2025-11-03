@@ -5,10 +5,14 @@
     sensor: "livox"
     use_imu_roll_pitch: false
 
+    # world_frame: "map"
+    # world_frame_rot: "map_rot"
+    # sensor_frame: "odom"
+    # sensor_frame_rot: "odom_rot"
     world_frame: "odom"
-    world_frame_rot: "map_rot"
-    sensor_frame: "sensor"
-    sensor_frame_rot: "sensor_rot"
+    world_frame_rot: "odom_rot"
+    sensor_frame: "base_link"
+    sensor_frame_rot: "base_link_rot"
 
     imu_acc_x_limit: 0.5
     imu_acc_y_limit: 0.2

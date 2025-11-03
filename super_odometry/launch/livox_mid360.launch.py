@@ -15,7 +15,7 @@ def get_share_file(package_name, file_name):
 def generate_launch_description():
     config_path = get_share_file(
         package_name="super_odometry",
-        file_name="config/livox_mid360.yaml")
+        file_name="config/livox_mid360_copy.yaml")
     calib_path = get_share_file(
         package_name="super_odometry",
         file_name="config/livox/livox_mid360_calibration.yaml"
@@ -50,6 +50,12 @@ def generate_launch_description():
     sensor_frame_rot_arg = DeclareLaunchArgument(
         "sensor_frame_rot",
         default_value="sensor_rot",
+    )
+
+    tf_remap_dest_arg = DeclareLaunchArgument(
+        "tf_remap_dest",
+        default_value="/tf", # The original hardcoded value is now the default
+        description="Destination topic for the /tf remapping in imu_preintegration_node"
     )
 
     feature_extraction_node = Node(
@@ -90,6 +96,9 @@ def generate_launch_description():
         parameters=[LaunchConfiguration("config_file"),
             { "calibration_file": LaunchConfiguration("calibration_file")
         }],
+        remappings=[
+            ('/tf', LaunchConfiguration("tf_remap_dest")),
+        ]
     )
 
     livox_MID360_driver_cmd = IncludeLaunchDescription(
@@ -108,6 +117,7 @@ def generate_launch_description():
         world_frame_rot_arg,
         sensor_frame_arg,
         sensor_frame_rot_arg,
+        tf_remap_dest_arg,
         feature_extraction_node,
         laser_mapping_node,
         imu_preintegration_node,
